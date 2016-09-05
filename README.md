@@ -63,38 +63,38 @@ Examples:
 0 6 * * * America/Chicago | will execute at 6:00am (UTC/GMT -5) every day.
 ```
 
-Further documentation describing this syntax can be found https://github.com/jmettraux/rufus-schedulerparsing-cronlines-and-time-strings[here].
+Further documentation describing this syntax can be found [here](https://github.com/jmettraux/rufus-schedulerparsing-cronlines-and-time-strings).
 
-A sample
+Here is how a sample event will look like:
 
 ```
 {
-                        "L_ListingID" => "12345678",
-                            "L_Class" => "1",
-                            "L_Type_" => "7",
-                             "L_Area" => "12",
-                      "L_SystemPrice" => "165000",
-                      "L_AskingPrice" => "165000",
-                    "L_AddressNumber" => "1234",
-              "L_AddressSearchNumber" => "1234",
-                 "L_AddressDirection" => "",
-                    "L_AddressStreet" => "Main Street",
-                                  ... => ...
-                       "L_IdxInclude" => "0",
-                    "L_LastDocUpdate" => "",
-                           "@version" => "1",
-                         "@timestamp" => "2016-09-05T09:13:03.545Z",
-                     "@rets_metadata" => {
-                               "host" => "iMac.local",
-                    "runtime_seconds" => 3.504
-                         "query_name" => "properties",
-                         "query_spec" => {
-                           "resource" => "Property",
-                              "class" => "RE_1",
-                              "query" => "(L_Status=|1_0)",
-                              "limit" => 10
-                         }
-                    }
+            "L_ListingID" => "12345678",
+                "L_Class" => "1",
+                "L_Type_" => "7",
+                 "L_Area" => "12",
+          "L_SystemPrice" => "165000",
+          "L_AskingPrice" => "165000",
+        "L_AddressNumber" => "1234",
+  "L_AddressSearchNumber" => "1234",
+     "L_AddressDirection" => "",
+        "L_AddressStreet" => "Main Street",
+                      ... => ...
+           "L_IdxInclude" => "0",
+        "L_LastDocUpdate" => "",
+               "@version" => "1",
+             "@timestamp" => "2016-09-05T09:13:03.545Z",
+         "@rets_metadata" => {
+                   "host" => "iMac.local",
+        "runtime_seconds" => 3.504
+             "query_name" => "properties",
+             "query_spec" => {
+               "resource" => "Property",
+                  "class" => "RE_1",
+                  "query" => "(L_Status=|1_0)",
+                  "limit" => 10
+             }
+        }
 }
 ```
 
