@@ -23,7 +23,7 @@ input {
     # Supports "cron", "every", "at" and "in" schedules by rufus scheduler
     schedule => { cron => "* * * * * UTC"}
     # The target field in which the RETS fields will be stored
-    #target => "@rets_metadata"
+    #target => "rets_fields"
     # A hash of request metadata info (timing, response headers, etc.) will be sent here
     metadata_target => "@rets_metadata"
     queries => {
