@@ -6,7 +6,7 @@ It is fully free and fully open source. The license is Apache 2.0, meaning you a
 
 ## Documentation
 
-The RETS input plugin can be configured very simply. Each `rets` input will allow you to send as many queries as desired
+The RETS input plugin can be configured very simply as shown below. Each `rets` input allows you to send as many queries as desired
 against a single [MLS RETS server](www.reso.org/specifications).
 
 The retrieved fields will be stored at the event root level by default (unless the `target` field is configured).
@@ -51,20 +51,6 @@ output {
 }
 ```
 
-This plugin must also be scheduled to run periodically according to a specific
-schedule. This scheduling syntax is powered by [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler).
-The syntax is cron-like with some extensions specific to Rufus (e.g. timezone support ).
-
-Examples:
-
-```
-* 5 * 1-3 *               | will execute every minute of 5am every day of January through March.
-0 * * * *                 | will execute on the 0th minute of every hour every day.
-0 6 * * * America/Chicago | will execute at 6:00am (UTC/GMT -5) every day.
-```
-
-Further documentation describing this syntax can be found [here](https://github.com/jmettraux/rufus-schedulerparsing-cronlines-and-time-strings).
-
 Here is how a sample event will look like:
 
 ```
@@ -97,6 +83,42 @@ Here is how a sample event will look like:
         }
 }
 ```
+
+### Configuration
+
+The following list enumerates all configuration parameters of the `rets` input:
+
+ * `url`: the Login URL to the MLS RETS server (required)
+ * `username`: the username to log into the MLS RETS server (required)
+ * `password`: the password to log into the MLS RETS server (required)
+ * `user_agent`: the User-Agent to use when identifying to the MLS RETS server (required)
+ * `user_agent_password`: the User-Agent password to use when identifying to the MLS RETS server (optional)
+ * `rets_version`: the RETS version to use. Valid versions are `RETS/1.5`, `RETS/1.7`, `RETS/1.7.2`, `RETS/1.8` (required)
+ * `schedule`: the [schedule specification](#scheduling) determining when the `rets` input must run (see below for details) (required)
+ * `target`: the name of the field into which to store the pulled RETS fields (default: root) (optional)
+ * `metadata_target`: the name of the field into which to store some metadata about the call (default: `@metadata` (optional)
+ * `queries`: Any number of named queries mapped to a hash with the following parameters:
+   * `resource`: the RETS resource to query (e.g. `Property`, `Agent`, etc)
+   * `class`: the RETS class to query (e.g. `RE_1`, `LD_2`, `Agent`, etc)
+   * `query`: the [DMQL query to send](https://www.flexmls.com/developers/rets/tutorials/dmql-tutorial/)
+   * `select`: a comma-separated list of fields to pull, leave empty to pull all fields
+   * `limit`: a number indicating how many records to pull at once
+
+### Scheduling
+
+This plugin must also be scheduled to run periodically according to a specific
+schedule. This scheduling syntax is powered by [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler).
+The syntax is cron-like with some extensions specific to Rufus (e.g. timezone support ).
+
+Examples:
+
+```
+* 5 * 1-3 *               | will execute every minute of 5am every day of January through March.
+0 * * * *                 | will execute on the 0th minute of every hour every day.
+0 6 * * * America/Chicago | will execute at 6:00am (UTC/GMT -5) every day.
+```
+
+Further documentation describing this syntax can be found [here](https://github.com/jmettraux/rufus-schedulerparsing-cronlines-and-time-strings).
 
 ## Need Help?
 
