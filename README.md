@@ -97,7 +97,7 @@ The following list enumerates all configuration parameters of the `rets` input:
  * `schedule`: the [schedule specification](#scheduling) determining when the `rets` input must run (see below for details) (required)
  * `target`: the name of the field into which to store the pulled RETS fields (default: root) (optional)
  * `metadata_target`: the name of the field into which to store some metadata about the call (default: `@metadata` (optional)
- * `queries`: Any number of named queries mapped to a hash with the following parameters:
+ * `queries`: Any number of named queries mapped to a hash with the following parameters: (at least one required)
    * `resource`: the RETS resource to query (e.g. `Property`, `Agent`, etc)
    * `class`: the RETS class to query (e.g. `RE_1`, `LD_2`, `Agent`, etc)
    * `query`: the [DMQL query to send](https://www.flexmls.com/developers/rets/tutorials/dmql-tutorial/)
